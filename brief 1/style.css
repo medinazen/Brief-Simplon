@@ -68,7 +68,8 @@ position: fixed;
     background: none;
 }
 
-.options-menu {
+.optionsmenu {
+
     position: fixed;
     bottom: 0;
     right: 20px;

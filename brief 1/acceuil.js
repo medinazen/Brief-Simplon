@@ -1,11 +1,15 @@
-const identifiant = localStorage.getItem('identifiant');
+const currentusers =sessionStorage.getItem('currentUser')
 const identifiantDisplay = document.getElementById('identifiant-display');
 const settingButton = document.getElementById('settingbutton');
 const profileButton = document.getElementById('user-icon');
 const deconexionButton = document.getElementById('deconnexion-button');
 const helpButton = document.getElementById('help-button');
-identifiantDisplay.textContent += identifiant;
+if (!currentusers){
+    window.location.href = "home.html"
+};
+identifiantDisplay.textContent += currentusers;
 deconexionButton.addEventListener('click', () => {
+    sessionStorage.clear();
     window.location.href = 'home.html';
 });
 

@@ -1,17 +1,20 @@
  
+const users = JSON.parse(localStorage.getItem('users')) || {}
 const identifiantInput = document.getElementById('identifiant');
 const passwordInput = document.getElementById('password');
 const loginButton = document.getElementById('login-button');
 loginButton.addEventListener('click', () => {
     const identifiant = identifiantInput.value;
     const password = passwordInput.value;
-    const storedIdentifiant = localStorage.getItem('identifiant');
-    const storedPassword = localStorage.getItem('password');
     if (identifiant && password) {
-        if (identifiant === storedIdentifiant && password === storedPassword) {
-            window.location.href = 'accueil.html';
-        } else {
+        if (!users[identifiant] || users[identifiant].password !== password) {
             alert('Identifiant ou mot de passe incorrect.');
+            return
+        } else {
+            sessionStorage.setItem('currentUser', identifiant);
+           
+            sessionStorage.setItem('currentusermail', users[identifiant].mail)
+            window.location.href = "accueil.html"
         }
     }
     else {
