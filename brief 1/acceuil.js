@@ -5,12 +5,12 @@ const profileButton = document.getElementById('user-icon');
 const deconexionButton = document.getElementById('deconnexion-button');
 const helpButton = document.getElementById('help-button');
 if (!currentusers){
-    window.location.href = "home.html"
+    window.location.href = "index.html"
 };
 identifiantDisplay.textContent += currentusers;
 deconexionButton.addEventListener('click', () => {
     sessionStorage.clear();
-    window.location.href = 'home.html';
+    window.location.href = 'index.html';
 });
 
 function bascule(elem) {

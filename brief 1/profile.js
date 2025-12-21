@@ -9,7 +9,7 @@ const password = localStorage.getItem('password');
 const helpButton = document.getElementById('help-button');
 const deconexionButton = document.getElementById('deconnexion-button');
 if (!currentuser){
-    window.location.href = "home.html"
+    window.location.href = "index.html"
 };
 helpButton.addEventListener('click', () => {
     window.location.href = "help.html"
@@ -25,7 +25,7 @@ deletebutton.addEventListener('click', () => {
     delete users[currentuser]; 
     localStorage.setItem('users', JSON.stringify(users));
     sessionStorage.clear()
-    window.location.href = 'home.html'
+    window.location.href = 'index.html'
 })
 function bascule(elem) {
         const button = document.getElementById(elem);
@@ -38,5 +38,5 @@ settingbutton.addEventListener('click', () => {
 });
 deconexionButton.addEventListener('click', () => {
     sessionStorage.clear();
-    window.location.href = 'home.html';
+    window.location.href = 'index.html';
 });
