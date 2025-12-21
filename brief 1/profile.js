@@ -8,6 +8,11 @@ const mail = localStorage.getItem('mail');
 const password = localStorage.getItem('password');
 const helpButton = document.getElementById('help-button');
 const deconexionButton = document.getElementById('deconnexion-button');
+const changeButton = document.getElementById('change-profil');
+const editProfile = document.getElementById('edit-profile');
+const mailInput = document.getElementById('new-mail');
+const identifiantumput = document.getElementById('new-id');
+let editMode = false;
 if (!currentuser){
     window.location.href = "index.html"
 };
@@ -40,3 +45,27 @@ deconexionButton.addEventListener('click', () => {
     sessionStorage.clear();
     window.location.href = 'index.html';
 });
+/*
+changeButton.addEventListener('click',() => {
+if (!editMode){
+ editProfile.style.display = 'block';
+    changeButton.textContent = 'Enregistrer';
+    mailInput.value = users[currentuser].mail;
+    editMode = true;
+    return;
+}
+ const newMail = mailInput.value;
+  const newid = identifiantInput.value;
+
+  if (newMail) users[currentUser].mail = newMail;
+  if (newid) users[currentUser].password = identifiantInput;
+
+  localStorage.setItem('users', JSON.stringify(users));
+  
+  editProfile.style.display = 'none';
+  changeButton.textContent = 'Changer votre profil ?';
+  editMode = false;
+location.reload()
+});
+
+*/

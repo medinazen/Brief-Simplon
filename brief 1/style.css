@@ -71,3 +71,6 @@ button {
   border-radius: 6px;
   cursor: pointer;
 }
+.edit-profile{
+display: hidden;
+}
