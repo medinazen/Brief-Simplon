@@ -6,6 +6,14 @@ const homebutton = document.getElementById('home')
 const identifiant = localStorage.getItem('identifiant');
 const mail = localStorage.getItem('mail');  
 const password = localStorage.getItem('password');
+const helpButton = document.getElementById('help-button');
+const deconexionButton = document.getElementById('deconnexion-button');
+if (!currentuser){
+    window.location.href = "home.html"
+};
+helpButton.addEventListener('click', () => {
+    window.location.href = "help.html"
+})
 identifiantDisplay = document.getElementById('identifiant-display');
 mailDisplay = document.getElementById('mail-display');
 identifiantDisplay.textContent += currentuser
@@ -14,7 +22,21 @@ homebutton.addEventListener('click', () =>  {
 window.location.href = 'accueil.html';
 })
 deletebutton.addEventListener('click', () => {
-   localStorage.setItem('users', JSON.stringify(users));
+    delete users[currentuser]; 
+    localStorage.setItem('users', JSON.stringify(users));
     sessionStorage.clear()
     window.location.href = 'home.html'
 })
+function bascule(elem) {
+        const button = document.getElementById(elem);
+        const isHidden = getComputedStyle(button).display === 'none';
+        button.style.display = isHidden ? 'block' : 'none'; 
+}
+const settingbutton = document.getElementById('settingbutton');
+settingbutton.addEventListener('click', () => {
+    bascule('optionsmenu');
+});
+deconexionButton.addEventListener('click', () => {
+    sessionStorage.clear();
+    window.location.href = 'home.html';
+});

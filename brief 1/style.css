@@ -63,20 +63,11 @@ position: fixed;
     left: 0;
     z-index: 1000;
 }
-#settingbutton {
-    cursor: pointer;
-    background: none;
-}
-
-.optionsmenu {
-
-    position: fixed;
-    bottom: 0;
-    right: 20px;
-    background-color: #5A0406;
-    border: 1px solid #b80000;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    padding: 10px;
-    display: none;
+button {
+  background-color: rgb(90, 4, 6);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
 }

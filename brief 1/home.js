@@ -3,6 +3,7 @@ const login = document.getElementById('login-button');
 const passwordInput = document.getElementById('password');
 const mailInput = document.getElementById('mail');
 const identifiantInput = document.getElementById('identifiant');
+const helpButton = document.getElementById('help-button')
 login.addEventListener('click', () => {
     const password = passwordInput.value;
     const mail = mailInput.value;
@@ -54,4 +55,7 @@ document.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
         login.click();
     }
+});
+helpButton.addEventListener("click", () =>{
+    window.location.href = 'help.html'
 });
