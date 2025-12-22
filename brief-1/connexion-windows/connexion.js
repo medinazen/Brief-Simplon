@@ -11,8 +11,9 @@ helpButton.addEventListener('click', () => {
 loginButton.addEventListener('click', () => {
     const identifiant = identifiantInput.value;
     const password = passwordInput.value;
+    const hash = CryptoJS.SHA256(password).toString()
     if (identifiant && password) {
-        if (!users[identifiant] || users[identifiant].password !== password) {
+        if (!users[identifiant] || users[identifiant].password !== hash) {
             alert('Identifiant ou mot de passe incorrect.');
             return
         } else {

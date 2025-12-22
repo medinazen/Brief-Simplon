@@ -6,6 +6,7 @@ const identifiantInput = document.getElementById('identifiant');
 const helpButton = document.getElementById('help-button')
 login.addEventListener('click', () => {
     const password = passwordInput.value;
+    const hash = CryptoJS.SHA256(password).toString()
     const mail = mailInput.value;
     const identifiant = identifiantInput.value;
 if (!password || !mail || !identifiant ){
@@ -30,7 +31,7 @@ if (users[mail]){
 }
 users[identifiant] = {
     mail: mail,
-    password: password
+    password: hash
 };
 localStorage.setItem('users', JSON.stringify(users));
 sessionStorage.setItem('currentUser', identifiant,)
