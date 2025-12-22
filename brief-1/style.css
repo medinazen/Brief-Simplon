@@ -11,7 +11,8 @@ body {
     min-height: 100vh;
     min-height: 100dvh; 
     background-color: #6F0709; 
-    padding: 0; 
+    padding: 0;
+    color: whitesmoke 
 }
 
 .top-bar {
