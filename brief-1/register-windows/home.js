@@ -35,7 +35,7 @@ users[identifiant] = {
 localStorage.setItem('users', JSON.stringify(users));
 sessionStorage.setItem('currentUser', identifiant,)
 sessionStorage.setItem('currentusermail', mail)
-window.location.href = 'accueil.html';
+window.location.href = '../acceuil-window/accueil.html';
 });
 function bascule(elem) {
     const button = document.getElementById(elem);
@@ -57,5 +57,5 @@ document.addEventListener("keypress", function(event) {
     }
 });
 helpButton.addEventListener("click", () =>{
-    window.location.href = 'help.html'
+    window.location.href = '../help-windows/help.html'
 });

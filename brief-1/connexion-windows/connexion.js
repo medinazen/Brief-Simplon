@@ -3,6 +3,11 @@ const users = JSON.parse(localStorage.getItem('users')) || {}
 const identifiantInput = document.getElementById('identifiant');
 const passwordInput = document.getElementById('password');
 const loginButton = document.getElementById('login-button');
+const helpButton = document.getElementById('help-button');
+helpButton.addEventListener('click', () => {
+    window.location.href = "../help-windows/help.html"
+} 
+)
 loginButton.addEventListener('click', () => {
     const identifiant = identifiantInput.value;
     const password = passwordInput.value;
@@ -14,7 +19,7 @@ loginButton.addEventListener('click', () => {
             sessionStorage.setItem('currentUser', identifiant);
            
             sessionStorage.setItem('currentusermail', users[identifiant].mail)
-            window.location.href = "accueil.html"
+            window.location.href = "../acceuil-window/accueil.html"
         }
     }
     else {

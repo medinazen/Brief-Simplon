@@ -5,12 +5,12 @@ const profileButton = document.getElementById('user-icon');
 const deconexionButton = document.getElementById('deconnexion-button');
 const helpButton = document.getElementById('help-button');
 if (!currentusers){
-    window.location.href = "index.html"
+    window.location.href = "../register-windows/index.html"
 };
 identifiantDisplay.textContent += currentusers;
 deconexionButton.addEventListener('click', () => {
     sessionStorage.clear();
-    window.location.href = 'index.html';
+    window.location.href = '../register-windows/index.html';
 });
 
 function bascule(elem) {
@@ -27,10 +27,10 @@ function bascule(elem) {
   
     });
   profileButton.addEventListener('click', () => {
-        window.location.href = 'profile.html';
+        window.location.href = '../profile-windows/profile.html';
 }
 );
  helpButton.addEventListener('click', () => {
-        window.location.href = 'help.html';
+        window.location.href = '../help-windows/help.html';
 } 
 );
