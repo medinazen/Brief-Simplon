@@ -1,13 +1,10 @@
- 
+import { togglemenu, keypress } from "../module/ui.js"; 
+import { navigation } from "../module/nav.js";
 const users = JSON.parse(localStorage.getItem('users')) || {}
 const identifiantInput = document.getElementById('identifiant');
 const passwordInput = document.getElementById('password');
 const loginButton = document.getElementById('login-button');
-const helpButton = document.getElementById('help-button');
-helpButton.addEventListener('click', () => {
-    window.location.href = "../help-windows/help.html"
-} 
-)
+navigation()
 loginButton.addEventListener('click', () => {
     const identifiant = identifiantInput.value;
     const password = passwordInput.value;
@@ -27,19 +24,10 @@ loginButton.addEventListener('click', () => {
         alert('Veuillez remplir tous les champs.');
     }
 });
-function bascule(elem) {
-        const button = document.getElementById(elem);
-        if (button.style.display === 'none') {
-            button.style.display = 'block';
-        } else {
-            button.style.display = 'none';
-        }
-}
-settingbutton.addEventListener('click', () => {
-    bascule('options-menu');
-});
-document.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        loginButton.click();
-    }    
-});
+
+const settingButton = document.getElementById('settingbutton')
+const optionsMenu = document.getElementById('options-menu')
+  settingButton.addEventListener('click', () => {
+    togglemenu(optionsMenu);
+  });
+keypress(loginButton)

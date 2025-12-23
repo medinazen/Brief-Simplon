@@ -1,36 +1,26 @@
-const currentusers =sessionStorage.getItem('currentUser')
-const identifiantDisplay = document.getElementById('identifiant-display');
-const settingButton = document.getElementById('settingbutton');
-const profileButton = document.getElementById('user-icon');
-const deconexionButton = document.getElementById('deconnexion-button');
-const helpButton = document.getElementById('help-button');
-if (!currentusers){
-    window.location.href = "../register-windows/index.html"
-};
-identifiantDisplay.textContent += currentusers;
-deconexionButton.addEventListener('click', () => {
-    sessionStorage.clear();
-    window.location.href = '../register-windows/index.html';
-});
+import { navigation, redirecttologin } from "../module/nav.js";
+import { isLogged, logout } from "../module/auth.js";
+import { displayuserinfo, togglemenu } from "../module/ui.js";
 
-function bascule(elem) {
-        const button = document.getElementById(elem);
-        if (button.style.display === 'none') {
-            button.style.display = 'block';
-        }
-    else {
-            button.style.display = 'none';
-        }
+const currentUser = sessionStorage.getItem('currentUser');
+const settingButton = document.getElementById('settingbutton');
+const optionsMenu = document.getElementById('optionsmenu');
+const deconnexionButton = document.getElementById('deconnexion-button');
+
+if (!isLogged()) {
+  redirecttologin();
 }
-    settingButton.addEventListener('click', () => {
-    bascule('optionsmenu');
-  
-    });
-  profileButton.addEventListener('click', () => {
-        window.location.href = '../profile-windows/profile.html';
-}
-);
- helpButton.addEventListener('click', () => {
-        window.location.href = '../help-windows/help.html';
-} 
-);
+
+navigation();
+displayuserinfo(currentUser);
+
+
+  deconnexionButton.addEventListener('click', () => {
+    logout();
+    redirecttologin();
+  });
+
+
+  settingButton.addEventListener('click', () => {
+    togglemenu(optionsMenu);
+  });

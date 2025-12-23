@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=*, initial-scale=1.0">
-    <link rel="stylesheet" href ="../style.css">
+    <link rel="stylesheet" href ="../module/style.css">
     <title>super site</title>
 </head>
 <body>  
@@ -17,7 +17,7 @@
             <p id="identifiant-display"></p>
             <p id="mail-display"></p>
             <p id="password-display"></p>
-            <button id = "delete account">supprimer votre compte ?</button>
+            <button id = "delete-button">supprimer votre compte ?</button>
 </div>
 <span class="footer-bar"><button id = "settingbutton">☰</button>
             <div class="options-menu" id="optionsmenu">
@@ -27,5 +27,7 @@
                 </ul>
             </div>
         </span>
-    <script src="profile.js"></script>
+    <script type ="module"src="profile.js"></script>
+    <script type="module" src="../module/auth.js"></script>
+     <script type="module" src="../module/nav.js" ></script>
 </body>

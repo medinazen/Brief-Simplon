@@ -1,9 +1,11 @@
+import { navigation } from "../module/nav.js";
+import { togglemenu, keypress } from "../module/ui.js";
 let users = JSON.parse(localStorage.getItem('users')) || {}
 const login = document.getElementById('login-button');
 const passwordInput = document.getElementById('password');
 const mailInput = document.getElementById('mail');
 const identifiantInput = document.getElementById('identifiant');
-const helpButton = document.getElementById('help-button')
+navigation()
 login.addEventListener('click', () => {
     const password = passwordInput.value;
     const hash = CryptoJS.SHA256(password).toString()
@@ -38,25 +40,9 @@ sessionStorage.setItem('currentUser', identifiant,)
 sessionStorage.setItem('currentusermail', mail)
 window.location.href = '../acceuil-window/accueil.html';
 });
-function bascule(elem) {
-    const button = document.getElementById(elem);
-    if (button.style.display === 'none') {
-        button.style.display = 'block';
-    } else {
-        button.style.display = 'none';
-    }
-}
-
-const settingbutton = document.getElementById('settingbutton');
-settingbutton.addEventListener('click', () => {
-    bascule('optionsmenu');
-});
-
-document.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        login.click();
-    }
-});
-helpButton.addEventListener("click", () =>{
-    window.location.href = '../help-windows/help.html'
-});
+const settingButton = document.getElementById('settingbutton')
+const optionsMenu = document.getElementById('optionsmenu')
+  settingButton.addEventListener('click', () => {
+    togglemenu(optionsMenu);
+  });
+  keypress(login)
